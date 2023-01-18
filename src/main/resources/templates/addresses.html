@@ -1,0 +1,23 @@
+<!DOCTYPE HTML>
+<html xmlns:th="http://www.thymeleaf.org">
+<head>
+  <title>Adresses</title>
+  <meta http-equiv="Content-Type" content="text/html ; charset=UTF-8" />
+  <div th:replace="~{/fragments/css :: css}" />
+</head>
+<body>
+<div th:replace="~{/fragments/navbar :: navbar}"></div>
+<div class="container m-4">
+  <h1>Les differentes adresses</h1>
+  <div class="list-group" th:each="address:${allAddresses}">
+    <div class="list-group-item list-group-item-action flex-column align-items-start my-2">
+      <div class="d-flex w-100 justify-content-between">
+        <h5 class="mb-1" th:text="${address.content}"></h5>
+        <small th:text="${address.creation}"></small>
+      </div>
+      <p class="mb-1" th:text="'Recherché par ' + ${address.author}"></p>
+    </div>
+  </div>
+</div>
+</body>
+</html>
