@@ -1,0 +1,21 @@
+<!DOCTYPE HTML>
+<html xmlns:th="http://www.thymeleaf.org">
+<head>
+    <title>Adresses</title>
+    <meta http-equiv="Content-Type" content="text/html ; charset=UTF-8" />
+    <div th:replace="~{/fragments/css :: css}" />
+</head>
+<body>
+<div th:replace="~{/fragments/navbar :: navbar}"></div>
+<div class="container m-4">
+    <div class="card">
+        <div class="card-body">
+            <h5 class="card-title" th:text="${weather.getCityName()} + ', ' + ${weather.getPostCode()}"></h5>
+            <h6 class="card-subtitle mb-2" th:text="'Température actuelle ' + ${weather.getForecasts()[0].getWeather()} + '°C'"></h6>
+            <p class="card-text" th:text="'Min ' + ${weather.getForecasts()[0].getTempMin()} + '°C, Max ' + ${weather.getForecasts()[0].getTempMax()} + '°C'"></p>
+            <p class="card-text" th:text="'Altitude ' + ${weather.getAltitude()} + 'm'"></p>
+        </div>
+    </div>
+</div>
+</body>
+</html>

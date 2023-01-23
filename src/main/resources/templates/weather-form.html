@@ -1,0 +1,20 @@
+<!DOCTYPE HTML>
+<html xmlns:th="http://www.thymeleaf.org">
+<head>
+    <title>Adresses</title>
+    <meta http-equiv="Content-Type" content="text/html ; charset=UTF-8" />
+    <div th:replace="~{/fragments/css :: css}" />
+</head>
+<body>
+<div th:replace="~{/fragments/navbar :: navbar}"></div>
+<div class="container m-4">
+    <form action="/meteo" method="post">
+        <div class="form-group">
+            <label for="address">Adresse</label>
+            <input type="text" class="form-control" name="address" id="address" placeholder="Entrez votre adresse">
+        </div>
+        <button type="submit" class="btn btn-primary">Récupérer les informations météo</button>
+    </form>
+</div>
+</body>
+</html>

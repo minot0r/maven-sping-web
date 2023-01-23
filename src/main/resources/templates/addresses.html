@@ -16,6 +16,11 @@
         <small th:text="${address.creation}"></small>
       </div>
       <p class="mb-1" th:text="'Recherché par ' + ${address.author}"></p>
+      <form action="/meteo" method="post">
+        <input type="hidden" name="address" th:value="${address.content}">
+        <input type="hidden" name="searchedAlready" value="true">
+        <button type="submit" class="btn btn-primary">Récupérer les informations météo</button>
+      </form>
     </div>
   </div>
 </div>
