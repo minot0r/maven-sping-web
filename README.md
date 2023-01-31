@@ -71,3 +71,27 @@ Quand Autowired est invoqué, il charge de faire le mapping entre les données e
 Pour importer bootstrap, je télécharge le CSS minifié depuis le CDN de bootstrap, ensuite je le place dans le dossier static.
 Je crée un nouveau fichier css.html qui sera un fragment utilisé dans chaque template, comme ça si mes importations changent je n'ai qu'a changer le fragment.
 Puis je remplace le fragment.
+
+### 9. Faut-il une clé API pour appeler MeteoConcept ?
+Oui, il faut une clé d'API pour utiliser l'API REST de MeteoConcept.
+
+### 10. Quelle URL appeler ?
+L'URL à appeler est : https://api.meteo-concept.com/api/forecast/daily?token=[TOKEN_API]&latlng=[LAT,LON]
+avec [TOKEN_API] qui est la clé d'API (disponible dans WeatherController#apiToken).
+avec [LAT,LON] qui sont les coordonnées GPS du lieu visé.
+
+### 11. Quelle méthode HTTP utiliser ?
+Cet endpoint est un endpoint REST qui utilise la méthode HTTP GET, les paramètres sont passés dans l'URL, et la réponse est au format JSON avec le header `Accept: application/json`.
+Les paramètres sont : `token` et `latlng`.
+
+### 12. Comment passer les paramètres d'appels ?
+Puisque l'endpoint utilise la méthode HTTP GET, les paramètres sont passés dans l'URL.
+`?` marque le début des paramètres, et `&` sépare les paramètres.
+
+### 13. Où est l'information dont j'ai besoin dans la réponse ?
+
+#### 13.1 Pour afficher la température du lieu visé par les coordonnées GPS
+Dans la réponse, il y a un tableau `forecast` qui contient les prévisions météo pour les 5 prochains jours, a des heures différentes.
+
+#### 13.2 Pour afficher la prévision de météo du lieu visé par les coordonnées GPS
+Chaque entrée du tableau `forecast` contient un champ `weather` qui contient la prévision météo pour l'heure visée.
